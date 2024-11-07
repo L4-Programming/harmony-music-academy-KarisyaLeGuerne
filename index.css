@@ -66,6 +66,9 @@ button {
   outline: 2px solid var(--sky-500);
   box-shadow: var(--box-shadow-lg);
 }
+.mobile-display {
+  display: none;
+}
 .submit-btn {
   border-radius: 1.75rem;
   margin: 0 auto;
@@ -88,6 +91,7 @@ button {
   box-shadow: var(--box-shadow-lg);
   transition: all 0.3s ease;
 }
+
 @media screen and (max-width: 640px) {
   .mobile-display {
     display: block;
