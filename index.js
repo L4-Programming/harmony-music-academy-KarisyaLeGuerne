@@ -1,6 +1,11 @@
-// Display a form to the user
-// Include input fields for the user's email address, level, and hours of study
 // Capture user's input on form submission
+let form = document.querySelector("form");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  console.log("Form submitted");
+});
 // Get the user's email address - userEmail (string)
 // Get the user's level - userLevel (string)
 // Get the user's hours of study userHours (number)
