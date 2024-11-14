@@ -4,11 +4,16 @@ let form = document.querySelector("form");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  console.log("Form submitted");
+  // Store the user's email address as userEmail (string/text)
+  let userEmail = document.querySelector("#email").value;
+  let userLevel = document.querySelector("#level").value;
+  let userHours = document.querySelector("#hoursPerWeek").value;
+  console.log({ userEmail, userLevel, userHours });
 });
-// Get the user's email address - userEmail (string)
+
 // Get the user's level - userLevel (string)
 // Get the user's hours of study userHours (number)
+// Store the user's level as userLevel (string/text)
 // Validate the user's input
 // Check if the user has selected a level - check a level has been entered
 // Check if the user has provided an email address - have they entered an email? is valid? does it have an "@" symbol?
