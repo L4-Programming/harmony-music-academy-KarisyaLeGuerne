@@ -27,11 +27,31 @@ export function displayErrors(errors) {
   }
 }
 
+function removeErrors() {
+  let errorInputs = document.querySelectorAll(".error-input");
+  errorInputs.forEach((input) => {
+    input.classList.remove("error-input");
+  });
+
+  let errorLabels = document.querySelectorAll(".error-label");
+  errorLabels.forEach((label) => {
+    label.classList.remove("error-label");
+  });
+
+  let errorMessages = document.querySelectorAll(".error-message");
+  errorMessages.forEach((div) => {
+    div.classList.remove("error-message");
+    div.innerHTML = "";
+  });
+}
+
 export function validateForm({ userEmail, userLevel, userHours }) {
   const maxHoursPerLevel = {
     basic: 5,
     advanced: 10,
   };
+
+  removeErrors();
 
   let errors = {};
 
@@ -79,9 +99,9 @@ export function validateForm({ userEmail, userLevel, userHours }) {
 
   // Return early if there are any errors
   if (Object.keys(errors).length > 0) {
-    return;
-
     return false;
+
+    displayErrors();
   }
 
   return {
@@ -89,5 +109,4 @@ export function validateForm({ userEmail, userLevel, userHours }) {
     userLevel,
     userHours: parseInt(userHours),
   };
-  //validation logic here
 }
