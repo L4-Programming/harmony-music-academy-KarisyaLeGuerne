@@ -62,26 +62,28 @@ form.addEventListener("submit", function (event) {
     if (labelElement) {
       labelElement.classList.add("error-label");
     }
+
+    // Populate the error message div with an unordered list of error messages
+    let errorDiv = document.querySelector(`#${field}-error`);
+    if (errorDiv) {
+      errorDiv.classList.add("error-message");
+      let ul = document.createElement("ul");
+
+      errors[field].messages.forEach((message) => {
+        let li = document.createElement("li");
+        li.textContent = message;
+        ul.appendChild(li);
+      });
+
+      errorDiv.innerHTML = ""; // Clear any existing content
+      errorDiv.appendChild(ul);
+    }
   }
+
+  console.log({ userEmail, userLevel, userHours });
+  console.log({ errors });
 });
-// Populate the error message div with an unordered list of error messages
-let errorDiv = document.querySelector(`#${field}-error`);
-if (errorDiv) {
-  errorDiv.classList.add("error-message");
-  let ul = document.createElement("ul");
 
-  errors[field].messages.forEach((message) => {
-    let li = document.createElement("li");
-    li.textContent = message;
-    ul.appendChild(li);
-  });
-
-  errorDiv.innerHTML = ""; // Clear any existing content
-  errorDiv.appendChild(ul);
-}
-
-console.log({ userEmail, userLevel, userHours });
-console.log({ errors });
 // Check if the number of hours requested is within the allowed range - is less then or equal to the maximum number for the level;
 // Calculate the total cost
 // Calculate the total cost
