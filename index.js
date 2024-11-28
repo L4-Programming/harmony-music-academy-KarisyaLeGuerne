@@ -1,3 +1,4 @@
+import { displayResults } from "./displayResults.js";
 import { validateForm } from "./validateForm.js";
 import { calculateCosts } from "./calculateCosts.js";
 
@@ -21,6 +22,8 @@ form.addEventListener("submit", function (event) {
     const output = calculateCosts(result);
 
     console.log({ output });
+
+    displayResults(output);
   }
 });
 // Calculate the total cost
